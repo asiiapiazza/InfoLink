@@ -61,7 +61,7 @@ const corsi: Course[] = [
   },
   {
     name: "Teoria della Computazione",
-    link: "https://elearning.unimib.it/enrol/index.php?id=62134",
+    link: "https://elearning.unimib.it/course/view.php?id=62134",
     active: false,
     anno: 1,
   },
@@ -91,7 +91,7 @@ const corsi: Course[] = [
   },
   {
     name: "Processo e Sviluppo del Software",
-    link: "https://elearning.unimib.it/enrol/index.php?id=62115",
+    link: "https://elearning.unimib.it/course/view.php?id=62115",
     active: false,
     anno: 1,
   },
