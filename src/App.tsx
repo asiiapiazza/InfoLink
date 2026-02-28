@@ -79,7 +79,7 @@ const corsi: Course[] = [
   },
   {
     name: "Metodi del Calcolo Scientifico",
-    link: "https://elearning.unimib.it/enrol/index.php?id=62129",
+    link: "https://elearning.unimib.it/course/view.php?id=62129",
     active: false,
     anno: 1,
   },
