@@ -145,7 +145,7 @@ const corsi: Course[] = [
   },
   {
     name: "Applicazioni Web: progettazione e Sviluppo",
-    link: "https://elearning.unimib.it/course/view.php?id=61034",
+    link: "https://elearning.unimib.it/course/view.php?id=69139",
     active: false,
     anno: 2,
   },
@@ -281,7 +281,7 @@ const corsi: Course[] = [
     active: false,
     anno: 2,
   },
-]; //.sort((a, b) => a.name.localeCompare(b.name)); // ordina alfabeticamente
+];
 
 export default function App() {
   const [corsiFirst, setCourses] = useState<Course[]>(corsi);
@@ -311,9 +311,9 @@ export default function App() {
         prev.map((c) => ({
           ...c,
           active: selectedCourses.some(
-            (sc: { name: string }) => sc.name === c.name
+            (sc: { name: string }) => sc.name === c.name,
           ),
-        }))
+        })),
       );
     }
   }, []);
@@ -335,7 +335,9 @@ export default function App() {
 
   const toggleTempCourse = (courseName: string) => {
     setTempCourses((prev) =>
-      prev.map((c) => (c.name === courseName ? { ...c, active: !c.active } : c))
+      prev.map((c) =>
+        c.name === courseName ? { ...c, active: !c.active } : c,
+      ),
     );
   };
 
@@ -345,9 +347,9 @@ export default function App() {
     onChange={(e) => setQuery(e.target.value)}
   />;
 
-  const url = `https://gestioneorari.didattica.unimib.it/PortaleStudentiUnimib/index.php?view=easycourse&form-type=corso&include=corso&txtcurr=1+-+PERCORSO+COMUNE&anno=2025&scuola=AreaScientifica-Informatica&corso=F1802Q&anno2[]=GGG|1&date=${getToday()}&_lang=it&list=&week_grid_type=-1&ar_codes_=&ar_select_=&col_cells=0&empty_box=0&only_grid=0&highlighted_date=0&all_events=0&faculty_group=0#`;
+  const url = `https://gestioneorari.didattica.unimib.it/PortaleStudentiUnimib/index.php?view=easycourse&form-type=corso&include=corso&txtcurr=2+-+PERCORSO+COMUNE&anno=2026&scuola=AreaScientifica-Informatica&corso=F1802Q&anno2[]=GGG|2&date=${getToday()}&_lang=it&list=&week_grid_type=-1&ar_codes_=&ar_select_=&col_cells=0&empty_box=0&only_grid=0&highlighted_date=0&all_events=0&faculty_group=0#`;
 
-  return (
+  https: return (
     <div className="flex flex-col items-center px-4 sm:px-8 md:px-16">
       {/* Titolo */}
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mt-10">
@@ -397,7 +399,7 @@ export default function App() {
         </a>
 
         <a
-          href="https://gestioneorari.didattica.unimib.it/PortaleStudentiUnimib/index.php?view=easytest&form-type=et_cdl&include=et_cdl&et_er=1&scuola=AreaScientifica-Informatica&esami_cdl=F1801Q&anno2%5B%5D=1&datefrom=23-09-2025&dateto=11-04-2026&_lang=it&list=&week_grid_type=-1&ar_codes_=&ar_select_=&col_cells=0&empty_box=0&only_grid=0&highlighted_date=0&all_events=0#"
+          href="`https://gestioneorari.didattica.unimib.it/PortaleStudentiUnimib/index.php?view=easytest&form-type=et_cdl&include=et_cdl&et_er=1&scuola=AreaScientifica-Informatica&esami_cdl=F1801Q&anno2[]=1&datefrom=${getToday()}&dateto=11-04-2026&_lang=it&list=&week_grid_type=-1&ar_codes_=&ar_select_=&col_cells=0&empty_box=0&only_grid=0&highlighted_date=0&all_events=0#`"
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-col items-center bg-gray-200  w-50   rounded-lg p-4 hover:bg-gray-300 transition transform hover:scale-105"
@@ -495,7 +497,7 @@ export default function App() {
                 {tempCourses
                   .filter((course) => selectedYears.includes(course.anno))
                   .filter((course) =>
-                    course.name.toLowerCase().includes(query.toLowerCase())
+                    course.name.toLowerCase().includes(query.toLowerCase()),
                   )
                   .map((course) => (
                     <button
